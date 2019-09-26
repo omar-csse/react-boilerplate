@@ -7,9 +7,10 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
     },
+    mode: 'development',
     module: {
         rules: [{
-                test: /\.(js)$/,
+                test:  /\.js(x?)$/,
                 exclude: /node_modules/,
                 use: 'babel-loader'
             },
@@ -20,11 +21,10 @@ module.exports = {
             }
         ]
     },
-    mode: 'development',
     plugins: [
         new HtmlWebpackPlugin({
-            template: './public/main.html',
-            favicon: './public/favicon.ico'
+            template: path.resolve(__dirname, 'public/main.html'),
+            favicon: path.resolve(__dirname, 'public/favicon.ico')
         })
     ]
 }
